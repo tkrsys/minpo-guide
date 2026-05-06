@@ -1,0 +1,552 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   民法ガイド 共通デザインシステム
+   gyoseiho-guide のデザインを踏襲し、6 分野（総則・物権・債権総論・
+   債権各論・親族・相続）にテーマカラーを割り当て。
+   data-theme 属性で切り替え。
+   ============================================================ */
+
+:root {
+  --bg: #f7f9fc;
+  --bg2: #eff3f8;
+  --surface: #fff;
+  --border: rgba(0, 0, 0, 0.09);
+  --border2: rgba(0, 0, 0, 0.16);
+  --text: #1c1e21;
+  --text2: #5a5d63;
+  --text3: #9ca0a8;
+
+  --blue: #1a56db;
+  --blue-bg: #e1effe;
+  --blue-text: #0c3d9f;
+  --blue-darker: #1e40af;
+  --teal: #0d9488;
+  --teal-bg: #ccfbf1;
+  --teal-text: #0f766e;
+  --amber-bg: #fef3c7;
+  --amber-text: #d97706;
+  --red: #dc2626;
+  --red-bg: #fecaca;
+  --red-text: #dc2626;
+  --red-darker: #b91c1c;
+  --purple: #7c3aed;
+  --purple-bg: #ede9fe;
+  --purple-text: #5b21b6;
+  --purple-darker: #6d28d9;
+  --green: #059669;
+  --green-bg: #d1fae5;
+  --green-text: #047857;
+  --green-darker: #047857;
+  --gold: #f59e0b;
+  --gold-bg: #fef3c7;
+  --gold-text: #92400e;
+  --orange: #ea580c;
+  --orange-bg: #ffedd5;
+  --orange-text: #9a3412;
+  --pink: #db2777;
+  --pink-bg: #fce7f3;
+  --pink-text: #9d174d;
+  --pink-darker: #be185d;
+  --indigo: #4f46e5;
+  --indigo-bg: #e0e7ff;
+  --indigo-text: #3730a3;
+  --indigo-darker: #4338ca;
+
+  --r: 12px;
+  --rsm: 8px;
+
+  /* デフォルトテーマ（ポータル：青） */
+  --theme: var(--blue);
+  --theme-bg: var(--blue-bg);
+  --theme-text: var(--blue-text);
+  --theme-darker: var(--blue-darker);
+  --theme-grad-from: var(--blue);
+  --theme-grad-to: #2563eb;
+  --theme-flow-from: var(--blue-bg);
+  --theme-flow-to: var(--teal-bg);
+  --theme-glow: rgba(26, 86, 219, 0.1);
+}
+
+/* テーマ：総則（青） */
+[data-theme='blue'] {
+  --theme: var(--blue);
+  --theme-bg: var(--blue-bg);
+  --theme-text: var(--blue-text);
+  --theme-darker: var(--blue-darker);
+  --theme-grad-from: var(--blue);
+  --theme-grad-to: #2563eb;
+  --theme-flow-from: var(--blue-bg);
+  --theme-flow-to: var(--teal-bg);
+  --theme-glow: rgba(26, 86, 219, 0.1);
+}
+
+/* テーマ：物権（緑） */
+[data-theme='green'] {
+  --theme: var(--green);
+  --theme-bg: var(--green-bg);
+  --theme-text: var(--green-text);
+  --theme-darker: var(--green-darker);
+  --theme-grad-from: var(--green);
+  --theme-grad-to: #059669;
+  --theme-flow-from: var(--green-bg);
+  --theme-flow-to: var(--teal-bg);
+  --theme-glow: rgba(5, 150, 105, 0.1);
+}
+
+/* テーマ：債権総論（紫） */
+[data-theme='purple'] {
+  --theme: var(--purple);
+  --theme-bg: var(--purple-bg);
+  --theme-text: var(--purple-text);
+  --theme-darker: var(--purple-darker);
+  --theme-grad-from: var(--purple);
+  --theme-grad-to: #6d28d9;
+  --theme-flow-from: var(--purple-bg);
+  --theme-flow-to: var(--blue-bg);
+  --theme-glow: rgba(124, 58, 237, 0.1);
+}
+
+/* テーマ：債権各論（赤） */
+[data-theme='red'] {
+  --theme: var(--red);
+  --theme-bg: var(--red-bg);
+  --theme-text: var(--red-text);
+  --theme-darker: var(--red-darker);
+  --theme-grad-from: var(--red);
+  --theme-grad-to: var(--red-darker);
+  --theme-flow-from: var(--red-bg);
+  --theme-flow-to: var(--orange-bg);
+  --theme-glow: rgba(220, 38, 38, 0.1);
+}
+
+/* テーマ：親族（ピンク） */
+[data-theme='pink'] {
+  --theme: var(--pink);
+  --theme-bg: var(--pink-bg);
+  --theme-text: var(--pink-text);
+  --theme-darker: var(--pink-darker);
+  --theme-grad-from: var(--pink);
+  --theme-grad-to: var(--pink-darker);
+  --theme-flow-from: var(--pink-bg);
+  --theme-flow-to: var(--purple-bg);
+  --theme-glow: rgba(219, 39, 119, 0.1);
+}
+
+/* テーマ：相続（インディゴ） */
+[data-theme='indigo'] {
+  --theme: var(--indigo);
+  --theme-bg: var(--indigo-bg);
+  --theme-text: var(--indigo-text);
+  --theme-darker: var(--indigo-darker);
+  --theme-grad-from: var(--indigo);
+  --theme-grad-to: var(--indigo-darker);
+  --theme-flow-from: var(--indigo-bg);
+  --theme-flow-to: var(--purple-bg);
+  --theme-glow: rgba(79, 70, 229, 0.1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== 法律ページ用ヘッダー ===== */
+.law-header {
+  background: linear-gradient(135deg, var(--theme-grad-from), var(--theme-grad-to));
+  color: #fff;
+  padding: 1.5rem 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.law-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.law-header-left { display: flex; align-items: center; gap: 12px; }
+.law-header-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  backdrop-filter: blur(8px);
+}
+.law-header-title { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+.law-header-sub { font-size: 12px; opacity: 0.9; }
+.law-header-badge {
+  font-size: 11px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+.law-header-back {
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.law-header-back:hover { background: rgba(255, 255, 255, 0.3); }
+
+/* ===== ナビゲーション・検索 ===== */
+.nav-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.25rem;
+  position: sticky;
+  top: 89px;
+  z-index: 19;
+}
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  gap: 0;
+}
+.nav-content::-webkit-scrollbar { display: none; }
+.nav-item {
+  padding: 12px 16px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text2);
+  white-space: nowrap;
+  transition: all 0.2s;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.nav-item:hover { color: var(--theme-text); background: var(--theme-bg); }
+.nav-item.active {
+  color: var(--theme-text);
+  border-bottom-color: var(--theme);
+  background: var(--theme-bg);
+}
+
+.search-bar {
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 134px;
+  z-index: 18;
+}
+.search-content { max-width: 1200px; margin: 0 auto; }
+.search-wrap { position: relative; max-width: 600px; }
+.search-input {
+  width: 100%;
+  padding: 10px 16px 10px 44px;
+  border: 1px solid var(--border2);
+  border-radius: 24px;
+  background: var(--bg);
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.search-input:focus {
+  border-color: var(--theme);
+  background: var(--surface);
+  box-shadow: 0 0 0 3px var(--theme-glow);
+}
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--text3);
+}
+.search-count { font-size: 12px; color: var(--text3); margin-top: 8px; }
+
+/* ===== コンテンツ ===== */
+.content { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1.25rem; }
+
+.flow-section {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  margin-bottom: 2rem;
+}
+.flow-header {
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, var(--theme-flow-from), var(--theme-flow-to));
+  border-bottom: 1px solid var(--border);
+}
+.flow-title { font-size: 17px; font-weight: 700; color: var(--theme-text); margin-bottom: 4px; }
+.flow-desc { font-size: 12px; color: var(--text2); }
+
+.art-group { border-bottom: 1px solid var(--border); }
+.art-group:last-child { border-bottom: none; }
+.art-group-header {
+  padding: 1rem 1.5rem;
+  background: var(--bg2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+.art-group-header:hover { background: #e5e7eb; }
+.art-group-title { font-size: 15px; font-weight: 600; }
+.art-group-count {
+  font-size: 11px;
+  color: var(--text3);
+  background: var(--surface);
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+.art-group-arrow { font-size: 12px; color: var(--text3); transition: transform 0.2s; }
+.art-group.open .art-group-arrow { transform: rotate(90deg); }
+.art-group-body { display: none; }
+.art-group.open .art-group-body { display: block; }
+
+.art-item { border-bottom: 0.5px solid var(--border); }
+.art-item:last-child { border-bottom: none; }
+.art-header {
+  padding: 14px 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: background 0.2s;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+.art-header:hover { background: var(--bg); }
+.art-item.open .art-header { background: var(--bg); }
+.art-num {
+  min-width: 64px;
+  height: 32px;
+  border-radius: var(--rsm);
+  background: var(--theme-bg);
+  color: var(--theme-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+  padding: 0 6px;
+}
+.art-title-text { flex: 1; font-size: 14px; font-weight: 500; line-height: 1.5; }
+.art-badge { font-size: 10px; padding: 2px 8px; border-radius: 12px; margin-left: 8px; white-space: nowrap; }
+.badge-important { background: var(--red-bg); color: var(--red-text); }
+.badge-frequent { background: var(--amber-bg); color: var(--amber-text); }
+.badge-basic { background: var(--teal-bg); color: var(--teal-text); }
+.art-arrow { font-size: 12px; color: var(--text3); margin-left: auto; transition: transform 0.2s; }
+.art-item.open .art-arrow { transform: rotate(90deg); }
+
+.art-detail { display: none; padding: 0 1.5rem 20px 88px; background: var(--bg); }
+.art-item.open .art-detail { display: block; }
+.art-text {
+  background: var(--surface);
+  border-radius: var(--rsm);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.art-text-header {
+  padding: 12px 16px;
+  background: var(--theme-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.art-text-title { font-size: 13px; font-weight: 600; color: var(--theme-text); }
+.art-links { display: flex; gap: 6px; }
+.egov-link, .api-link {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s;
+  color: white;
+}
+.egov-link { background: var(--blue); }
+.egov-link:hover { background: #1e40af; }
+.api-link { background: var(--theme); }
+.api-link:hover { background: var(--theme-darker); }
+.art-text-body {
+  padding: 16px;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  font-size: 13px;
+  line-height: 1.8;
+  white-space: pre-line;
+  color: var(--text);
+}
+
+.explanations { display: flex; flex-direction: column; gap: 12px; }
+.exp-item { border-radius: var(--rsm); border: 1px solid var(--border); overflow: hidden; }
+.exp-header { padding: 10px 14px; font-size: 11px; font-weight: 600; }
+.exp-body { padding: 14px; font-size: 13px; line-height: 1.7; }
+.exp-practical { background: var(--surface); }
+.exp-practical .exp-header { background: var(--theme-bg); color: var(--theme-text); }
+.exp-beginner { background: var(--teal-bg); }
+.exp-beginner .exp-header { color: var(--teal-text); }
+.exp-exam { background: var(--amber-bg); }
+.exp-exam .exp-header { color: var(--amber-text); }
+
+.no-results { padding: 4rem 2rem; text-align: center; color: var(--text3); font-size: 15px; }
+
+/* ===== フッター ===== */
+.site-footer {
+  margin-top: 3rem;
+  padding: 2rem 1.25rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg2);
+  text-align: center;
+}
+.site-footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 12px;
+  color: var(--text3);
+  line-height: 1.6;
+}
+
+/* ===== ポータルトップ専用 ===== */
+.portal-hero {
+  background: linear-gradient(135deg, #1e3a8a, #1a56db, #7c3aed);
+  color: #fff;
+  padding: 3rem 1.25rem 2.5rem;
+}
+.portal-hero-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+.portal-hero-title { font-size: 28px; font-weight: 800; margin-bottom: 8px; letter-spacing: 0.04em; }
+.portal-hero-sub { font-size: 14px; opacity: 0.9; }
+
+.portal-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.portal-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+}
+.portal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+.portal-card-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  color: #fff;
+}
+.portal-card-title { font-size: 16px; font-weight: 700; }
+.portal-card-desc { font-size: 12px; color: var(--text2); line-height: 1.6; flex: 1; }
+.portal-card-meta {
+  font-size: 11px;
+  color: var(--text3);
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+/* 関係図 */
+.relations {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 1.25rem;
+}
+.relations-card {
+  background: var(--surface);
+  border-radius: var(--r);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.relations-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.relations-sub { font-size: 12px; color: var(--text2); margin-bottom: 1.25rem; }
+.relations-flow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+@media (max-width: 640px) { .relations-flow { grid-template-columns: 1fr; } }
+.relations-block {
+  border-radius: var(--rsm);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  background: var(--bg);
+}
+.relations-block-head { font-size: 12px; font-weight: 700; color: var(--text2); margin-bottom: 8px; }
+.relations-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  margin: 4px 4px 0 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.relations-pill[data-color='blue']   { background: var(--blue-bg);   color: var(--blue-text); }
+.relations-pill[data-color='green']  { background: var(--green-bg);  color: var(--green-text); }
+.relations-pill[data-color='purple'] { background: var(--purple-bg); color: var(--purple-text); }
+.relations-pill[data-color='red']    { background: var(--red-bg);    color: var(--red-text); }
+.relations-pill[data-color='pink']   { background: var(--pink-bg);   color: var(--pink-text); }
+.relations-pill[data-color='indigo'] { background: var(--indigo-bg); color: var(--indigo-text); }
+
+@media (max-width: 768px) {
+  .art-detail { padding-left: 1.5rem; }
+  .law-header-content { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .nav-content { padding: 0 4px; }
+  .art-links { flex-direction: column; width: 100%; }
+}

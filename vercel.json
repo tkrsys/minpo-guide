@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/", "destination": "https://tkrsys-laws.vercel.app/minpo", "permanent": false },
+    { "source": "/sousoku", "destination": "https://tkrsys-laws.vercel.app/minpo/sousoku", "permanent": false },
+    { "source": "/bukken", "destination": "https://tkrsys-laws.vercel.app/minpo/bukken", "permanent": false },
+    { "source": "/saiken-souron", "destination": "https://tkrsys-laws.vercel.app/minpo/saiken-souron", "permanent": false },
+    { "source": "/saiken-kakuron", "destination": "https://tkrsys-laws.vercel.app/minpo/saiken-kakuron", "permanent": false },
+    { "source": "/shinzoku", "destination": "https://tkrsys-laws.vercel.app/minpo/shinzoku", "permanent": false },
+    { "source": "/sozoku", "destination": "https://tkrsys-laws.vercel.app/minpo/sozoku", "permanent": false },
+    { "source": "/(.*)", "destination": "https://tkrsys-laws.vercel.app/minpo", "permanent": false }
+  ]
+}
